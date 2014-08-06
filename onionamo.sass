@@ -1,0 +1,76 @@
+$primary-color: #f4af45
+$handle-diameter: 40px
+
+=is-unselectable
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.onion, .onion *
+  +is-unselectable
+
+.onion
+  width: 750px // px width required
+  position: relative
+  img
+    display: block
+
+$skin-border-width: 2px
+$triangle-size: 5px
+$triangle-color: #fff
+$triangle-offset: 12px
+.onion-handle
+  position: absolute
+  top: -($handle-diameter / 2)
+  left: 0
+  z-index: 3
+  margin-left: -($handle-diameter / 2) - ($skin-border-width / 2) // offset border
+  width: $handle-diameter
+  height: $handle-diameter
+  border-radius: $handle-diameter
+  background-color: $primary-color
+  cursor: pointer
+  // &:before, &:after
+  //   content: ''
+  //   position: absolute
+  //   top: floor($handle-diameter / 4)
+  //   z-index: 4
+  //   width: 0
+  //   height: $handle-diameter / 2 
+  //   border: 1px solid transparent 
+  // &:before
+  //   left: $handle-diameter / 2
+  //   border-right-color: darken($primary-color, 15%)
+  // &:after
+  //   right: $handle-diameter / 2
+  //   border-left-color: darken($primary-color, 15%)
+  &:before, &:after
+    content: ''
+    position: absolute
+    top: ($handle-diameter / 2) - $triangle-size
+    z-index: 4
+    width: 0
+    height: 0
+    border: $triangle-size solid transparent 
+  &:before
+    left: $triangle-offset
+    border-left-width: 0
+    border-right-color: $triangle-color
+  &:after
+    right: $triangle-offset
+    border-right-width: 0
+    border-left-color: $triangle-color
+
+.onion-skin
+  position: absolute
+  z-index: 2
+  width: 0
+  overflow: hidden
+  border-right: $skin-border-width solid $primary-color
+
+.onion-meat
+  position: absolute
+  z-index: 1

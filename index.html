@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Draggable Onion Skin Thing</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="onionamo.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+    body {
+      width: 100%;
+      height: 100%; }
+    .onion {
+      margin: 50px auto; }
+  </style>
+  
+</head>
+<body>
+
+  <div class="onion">
+    <div class="onion-handle"></div>
+    <div class="onion-skin">
+      <img src="/img/fuse-new.jpg" alt="">
+    </div>
+    <div class="onion-meat">
+      <img src="/img/fuse-old.jpg" alt="">
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="onionamo.js"></script>
+  <script>
+    $(document).ready(function () {
+      onionamo.peel();
+    });
+  </script>
+
+</body>
+</html>
